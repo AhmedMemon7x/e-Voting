@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+    <title>25 SES Graphic Designer Result</title>
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}    
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #4CAF50;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242424;
+    color: white;
+    padding: 18px 20px;
+}
+.navbar-brand {
+    color: white;
+    font-size: 24px;
+    margin-left: 1.4em;
+    font-weight: bold;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+}
+.navbar-links li {
+    margin-left: 20px;
+}
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.navbar-links a:hover {
+    background-color: #4CAF50;
+}
+.logout-btn {
+    background-color: #4CAF50;
+}
+.logout-btn:hover {
+    background-color: #3E8E41;
+}
+
+button {
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 45px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+    background-color: #45a049; 
+    transform: scale(1.05);
+}
+
+    .card {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+    border: 2px solid #ddd;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+.card-designation {
+    font-size: 1.1rem;
+    color: #777;
+    margin: 10px 0;
+}
+
+.card-rollno {
+    font-size: 1rem;
+    color: #555;
+}
+.card-btn{
+    all: unset;
+    background-color: black;
+    width: 100px;
+    height:30px ;
+    color: white;
+    border-radius: 4px;
+}
+.parent {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .navbar-links {
+        flex-direction: column; 
+        width: 100%;
+        padding: 10px 0;
+        align-items: center;
+    }
+    .navbar-links li {
+        margin: 16px 0;
+    }
+    .card {
+        width: 90%;
+    }
+
+    .card-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .card-name {
+        font-size: 1.3rem;
+    }
+
+    .card-designation,
+    .card-rollno {
+        font-size: 1rem;
+    }
+}
+</style>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">eVote</div>
+        <ul class="navbar-links">
+            <li><a href="userPortal.html">User Dashboard</a></li>
+            <li><a href="Projectdetails.html">Project Detail</a></li>
+            <li><a href="TeamMembers.html">Team Members</a></li>
+            <li><a href="userFeedback.html">Feedback</a></li>
+            <li><a class="logout-btn" href="signin.html">Logout</a></li>
+        </ul>
+    </nav>
+    <marquee style="padding: 4px;font-size: 20px;color: black;background-color: #3E8E41;">25 SES Graphic Designer Result</marquee>
+            <div class="parent"  id="displayArea"></div>
+      </body>
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAZq4imcuIZ_MTthLSza1pAnnydINhakbU",
+      authDomain: "voting-website-584f3.firebaseapp.com",
+      databaseURL: "https://voting-website-584f3-default-rtdb.firebaseio.com",
+      projectId: "voting-website-584f3",
+      storageBucket: "voting-website-584f3.firebasestorage.app",
+      messagingSenderId: "521679073653",
+      appId: "1:521679073653:web:20dce826febbd86b96233c",
+      measurementId: "G-R72Q3972W6"
+    };
+    
+    
+    
+    const fb = firebase.initializeApp(firebaseConfig);
+
+const userRef = firebase.database().ref("elections/25-SES-GRAPHIC_DESIGNER");
+const displayArea = document.getElementById("displayArea");
+
+userRef.on("child_added", (snapshot) => {
+  const userData = snapshot.val();
+  const candidateName = userData.candidateName;
+
+  firebase.database().ref(`25-SES-GD-Votes/${candidateName}`).once('value', (voteSnapshot) => {
+    const voteCount = voteSnapshot.numChildren();
+
+    displayArea.innerHTML += `<div class="card">
+      <img src=${userData.image} alt="Profile Image" class="card-img">
+        <div class="card-content">
+            <h2 class="card-name">Name: ${userData.candidateName}</h2>
+            <p class="card-name">Roll No: ${userData.candidateRollNo}</p>
+            <p class="card-name">Votes: ${voteCount}</p>
+            </div>
+            </div>`;
+  });
+});
+
+
+
+
+    </script>
+    </html>

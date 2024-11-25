@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Potal</title>
+</head>
+<body>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+            font-family: "Poppins", sans-serif;
+            /* color: #4CAF50; */
+            /* background-color: #f9f9f9; */
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #242424;
+            color: white;
+            padding: 18px 20px;
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar-links {
+            list-style: none;
+            display: flex;
+        }
+        .navbar-links li {
+            margin-left: 20px;
+        }
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        .navbar-links a:hover {
+            background-color: #4CAF50;
+        }
+        .logout-btn {
+            background-color: #4CAF50;
+        }
+        .logout-btn:hover {
+            background-color: #3E8E41;
+        }
+        button {
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049; 
+            transform: scale(1.05);
+        }
+
+
+
+        
+         
+
+    .secondary-btn {
+        background-color: #4CAF50;
+    }
+
+
+    .secondary-btn:hover {
+        background-color: #388e3c; /* Darker shade for secondary button */
+    }
+
+
+    /* .logout-btn {
+        text-decoration: none;
+        color: rgb(6, 0, 0);
+        transition: color 0.3s ease;
+    }
+    .logout-btn :hover {
+        color: rgb(255, 255, 255);
+       
+    } */
+    
+.container-parent{
+    display: flex;
+    margin-top: 100px;
+}
+
+.container {
+    font-family: Arial, sans-serif; 
+    max-width: 600px;
+    /* margin: auto;  */
+    padding: 20px;
+    /* background-color: rgb(252, 249, 249);  */
+    border-radius: 8px; 
+    /* margin-bottom: 40px; */
+    /* display: flex; */
+}
+
+.main-heading {
+    font-size: 64px; 
+    margin-bottom: 10px;
+}
+
+.details {
+    font-size: 16px; 
+}
+.container-link{
+    all: unset;
+}
+
+.container-btn {
+    display: inline-block; /* Make the link behave like a button */
+    padding: 10px 20px; /* Padding for the link */
+    font-size: 16px; /* Font size for the link text */
+    color: white; /* Text color for the link */
+    background-color: #3E8E41; /* Background color for the link */
+    border-radius: 5px; /* Rounded corners for the link */
+    text-decoration: none; /* Remove underline from the link */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    margin-bottom: 15px;
+}
+
+.container-btn:hover {
+    background-color: #3E8E41; /* Darker shade on hover */
+}
+
+@media (max-width: 768px) {
+    body {
+        background-image: none; /* Removes the background image */
+    }
+    .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar-links {
+                flex-direction: column;
+                width: 100%;
+                padding: 10px 0;
+                align-items: center;
+            }
+            .navbar-links li {
+                margin: 16px 0;
+            }
+    .container {
+        text-align: center; /* Center text in the container on mobile */
+    }
+    .main-heading {
+        font-size: 36px; /* Smaller heading for mobile */
+    }
+    .container-img {
+        display: none;
+    }
+}
+
+
+    </style>
+    
+
+<nav class="navbar">
+    <div class="navbar-brand"  >Admin Portal</div>
+    <ul class="navbar-links">
+        <li><a href="./admxyz321.html" >Admin Dashboard</a></li>
+        <li><a href="addNewUser.html" >Add New User</a></li>
+        <li><a href="createVoting.html">Add Contestant</a></li>
+        <li>  <a href="getAllUser.html" >See All Users</a></li>
+        <li>  <a href="seeUserFeedbacks.html" >See Users Feedback</a></li>
+        <li><a class="logout-btn" href="#" >Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container-parent">
+    <div class="container" >
+        <h1 class="main-heading">ONLINE VOTING</h1>
+    <p class="details">Online voting, or e-voting, allows individuals to cast their votes via secure internet platforms, enhancing convenience and accessibility. This method can increase voter participation by allowing people to vote from anywhere. However, it raises significant concerns regarding security, privacy, and the digital divide, potentially disenfranchising those without reliable internet access. Successful implementation requires secure authentication, encryption, and robust audit trails.</p>
+    <button ><a class="container-link" href="#">Read More</a></button>
+</div>
+<div class="container-img"><img src="./img/vote-system.jpg" width="800px" alt=""></div>
+</div>
+</body>
+</html>
+
+
+<!-- // Upload
+const imageFile = document.getElementById('imageUpload').files[0];
+const reader = new FileReader();
+reader.onload = function (e) {
+    const base64Data = e.target.result;
+    // Store base64Data in your Realtime Database
+    firebase.database().ref('users/user1/profilePicture').set(base64Data);
+};
+reader.readAsDataURL(imageFile);
+
+// Use
+firebase.database().ref('users/user1/profilePicture').on('value', (snapshot) => {
+    const base64Data = snapshot.val();
+    const image = document.createElement('img');
+    image.src = base64Data;
+    document.body.appendChild(image);
+}); -->

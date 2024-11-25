@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+    <title>Create Voter</title>
+    <style>
+        /* General reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        
+        /* Centered container */
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        select,
+        input[type="file"] {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4CAF50;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #348837;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <h1>Create Voter</h1>
+        <form id="studentForm" onsubmit="addStudent(event)">
+            <label for="image">Upload Image:</label>
+            <input type="file" accept="image/*" id="image" required>
+
+            <label for="designation">Designation:</label>
+            <select id="designation" required>
+                <option value="none" disabled selected>Select Designation</option>
+                <option value="24SW-CR">24SW-CR</option>
+                <option value="25-SES-PRESEIDENT">25-SES-PRESEIDENT</option>
+                <option value="25-SES-VICE_PRESEIDENT">25-SES-VICE_PRESEIDENT</option>
+                <option value="25-SES-VIDEO_EDITOR">25-SES-VIDEO_EDITOR</option>
+                <option value="25-SES-GRAPHIC_DESIGNER">25-SES-GRAPHIC_DESIGNER</option>
+                <option value="25-SES-DIRECTOR_MANAGEMENT">25-SES-DIRECTOR_MANAGEMENT</option>
+            </select>
+
+            <label for="candidateName">Candidate Name:</label>
+            <input type="text" id="candidateName" placeholder="Enter Candidate's Name" required>
+
+            <label for="candidateRollNo">Candidate Roll Number:</label>
+            <input type="text" id="candidateRollNo" placeholder="Enter Candidate's Roll Number" required>
+
+            <input type="submit" value="Create Voting">
+        </form>
+        <div class="back-link">
+            <a href="admxyz321.html">Back to Admin Portal</a>
+        </div>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAZq4imcuIZ_MTthLSza1pAnnydINhakbU",
+            authDomain: "voting-website-584f3.firebaseapp.com",
+            databaseURL: "https://voting-website-584f3-default-rtdb.firebaseio.com",
+            projectId: "voting-website-584f3",
+            storageBucket: "voting-website-584f3.app",
+            messagingSenderId: "521679073653",
+            appId: "1:521679073653:web:20dce826febbd86b96233c",
+            measurementId: "G-R72Q3972W6"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        function addStudent(event) {
+            event.preventDefault();
+            const imageFile = document.getElementById('image').files[0];
+            const designation = document.getElementById('designation').value;
+            const candidateName = document.getElementById('candidateName').value;
+            const candidateRollNo = document.getElementById('candidateRollNo').value;
+
+            if (imageFile && designation !== "none" && candidateName && candidateRollNo) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const base64Data = e.target.result;
+                    const studentRef = database.ref(`elections/${designation}`).push();
+                    studentRef.set({
+                        designation,
+                        candidateName,
+                        candidateRollNo,
+                        image: base64Data
+                    })
+                    .then(() => {
+                        alert('Voter added successfully!');
+                        document.getElementById('studentForm').reset();
+                    })
+                    .catch((error) => {
+                        console.error('Error adding voter:', error);
+                    });
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                alert("Please fill all fields correctly!");
+            }
+        }
+    </script>
+</body>
+</html>

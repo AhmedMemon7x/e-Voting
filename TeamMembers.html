@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}    
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #4CAF50;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242424;
+    color: white;
+    padding: 18px 20px;
+}
+.navbar-brand {
+    color: white;
+    font-size: 24px;
+    margin-left: 1.4em;
+    font-weight: bold;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+}
+.navbar-links li {
+    margin-left: 20px;
+}
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.navbar-links a:hover {
+    background-color: #4CAF50;
+}
+.logout-btn {
+    background-color: #4CAF50;
+}
+.logout-btn:hover {
+    background-color: #3E8E41;
+}
+
+button {
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 45px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+    background-color: #45a049; 
+    transform: scale(1.05);
+}
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #3E8E41;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 70%;
+            margin: auto;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        .card {
+            flex: 0 0 300px;
+            margin: 10px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .card h3 {
+            margin: 15px 0 5px;
+            color: #333;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 0.9rem;
+            margin: 10px 15px;
+        }
+
+        .card p.designation {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-controls button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex: 0 0 80%;
+            }
+    .navbar {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .navbar-links {
+        flex-direction: column; 
+        width: 100%;
+        padding: 10px 0;
+        align-items: center;
+    }
+    .navbar-links li {
+        margin: 16px 0;
+    }
+    .slider-container {
+        width: 100vw;
+    }
+
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                flex: 0 0 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">eVote</div>
+        <ul class="navbar-links">
+            <li><a href="userPortal.html">User Dashboard</a></li>
+            <li><a href="Projectdetails.html">Project Detail</a></li>
+            <li><a href="TeamMembers.html">Team Members</a></li>
+            <li><a href="userFeedback.html">Feedback</a></li>
+            <li><a class="logout-btn" href="signin.html">Logout</a></li>
+        </ul>
+    </nav>
+    <h1 style="color: #242424;">Our Team</h1>
+
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <div class="card">
+                <img src="./img/ahmed3.jpg" style="object-fit: cover;" alt="Ahmed Memon">
+                <h3>Muhammad Ahmed</h3>
+                <p class="designation">Backend + Frontend Developer</p>
+                <p>Ahmed ensures smooth backend and frontend integration with his technical expertise.</p>
+            </div>
+            <div class="card">
+                <img src="./img/Screenshot 2024-11-13 195846.png" alt="Abdul Qadeer">
+                <h3>Abdul Qadeer</h3>
+                <p class="designation">UI/UX Designer + Frontend Developer</p>
+                <p>Abdul creates visually appealing and user-friendly interfaces for seamless navigation.</p>
+            </div>
+            <div class="card">
+                <img src="./img/WhatsApp Image 2024-11-17 at 15.18.48_14c11cb4.jpg" alt="Abdul Razzaque">
+                <h3>Abdul Razzaque</h3>
+                <p class="designation">Designer + Frontend Helper</p>
+                <p>Abdul contributes creative designs and assists in frontend implementation.</p>
+            </div>
+            <div class="card">
+                <img src="./img/WhatsApp Image 2024-11-14 at 14.59.36_a2511abe.jpg" alt="Saqib Anwar">
+                <h3>Saqib Anwar</h3>
+                <p class="designation">Frontend Helper</p>
+                <p>Saqib ensures high-quality frontend performance and supports ongoing development.</p>
+            </div>
+        </div>
+
+        <div class="slider-controls">
+            <button onclick="slideLeft()">&#10094;</button>
+            <button onclick="slideRight()">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function slideRight() {
+            const sliderWrapper = document.querySelector('.slider-wrapper');
+            const cards = document.querySelectorAll('.card');
+            currentIndex = (currentIndex + 1) % cards.length;
+            sliderWrapper.style.transform = `translateX(-${currentIndex * (cards[0].offsetWidth + 20)}px)`;
+        }
+
+        function slideLeft() {
+            const sliderWrapper = document.querySelector('.slider-wrapper');
+            const cards = document.querySelectorAll('.card');
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            sliderWrapper.style.transform = `translateX(-${currentIndex * (cards[0].offsetWidth + 20)}px)`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Voters</title>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+    <style>
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #4CAF50;
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 1rem;
+            color: #4CAF50;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #348837;
+            color: #fff;
+        }
+
+        .table-container {
+            width: 90%;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .nav {
+            width: 100%;
+            height: 10vh;
+            background-color: #242424;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">Admin Portal</div>
+    <h1>All Voters</h1>
+    <div class="table-container">
+        <table id="voterTable">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Feedback</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div style="text-align: center;">
+        <a href="./admxyz321.html">Back</a>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAZq4imcuIZ_MTthLSza1pAnnydINhakbU",
+            authDomain: "voting-website-584f3.firebaseapp.com",
+            databaseURL: "https://voting-website-584f3-default-rtdb.firebaseio.com",
+            projectId: "voting-website-584f3",
+            storageBucket: "voting-website-584f3.firebasestorage.app",
+            messagingSenderId: "521679073653",
+            appId: "1:521679073653:web:20dce826febbd86b96233c",
+            measurementId: "G-R72Q3972W6"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        const userRef = database.ref("usersFeedback");
+
+        userRef.on("child_added", (snapshot) => {
+            const userData = snapshot.val();
+            const tableBody = document.querySelector("#voterTable tbody");
+
+            const row = `
+                <tr>
+                    <td style="font-weight: bold;">Anonymous</td>
+                    <td>${userData.Feedback || "N/A"}</td>
+                    </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+                // <td>${userData.Email || "N/A"}</td>
+                </script>
+</body>
+</html>

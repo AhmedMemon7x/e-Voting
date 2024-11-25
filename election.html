@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Voting</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}    
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #4CAF50;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242424;
+    color: white;
+    padding: 18px 20px;
+}
+.navbar-brand {
+    color: white;
+    font-size: 24px;
+    margin-left: 1.4em;
+    font-weight: bold;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+}
+.navbar-links li {
+    margin-left: 20px;
+}
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.navbar-links a:hover {
+    background-color: #4CAF50;
+}
+.logout-btn {
+    background-color: #4CAF50;
+}
+.logout-btn:hover {
+    background-color: #3E8E41;
+}
+
+button {
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 45px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+    background-color: #45a049; 
+    transform: scale(1.05);
+}
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #4CAF50;
+            font-size: 2rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .parent {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 20px auto;
+            object-fit: cover;
+            border: 2px solid #ddd;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .vote-btn {
+            all: unset;
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 8px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .vote-btn:hover {
+            background-color: #348837;
+        }
+
+        .back-link {
+            text-align: left;
+            margin-left: 20%;
+            margin: 20px 0;
+        }
+
+        .back-link a {
+            color: #348837;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .navbar-links {
+        flex-direction: column; 
+        width: 100%;
+        padding: 10px 0;
+        align-items: center;
+    }
+    .navbar-links li {
+        margin: 16px 0;
+    }
+            .card {
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">eVote</div>
+        <ul class="navbar-links">
+            <li><a href="userPortal.html">User Dashboard</a></li>
+            <li><a href="Projectdetails.html">Project Detail</a></li>
+            <li><a href="TeamMembers.html">Team Members</a></li>
+            <li><a href="userFeedback.html">Feedback</a></li>
+            <li><a class="logout-btn" href="signin.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="parent">
+        <div class="card">
+            <img src="./img/voteBank.jpg" alt="24SW-CR" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">24SW-CR</h2>
+                <a href="./24SW-CR.html">
+                    <button class="vote-btn">Vote</button>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/voteBank.jpg" alt="25-SES-PRESIDENT" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">25-SES-PRESIDENT</h2>
+                <a href="./SES-PRESIDENT.html">
+                    <button class="vote-btn">Vote</button>
+                </a>
+            </div>
+        </div><br>
+        <div class="card">
+            <img src="./img/voteBank.jpg" alt="25-SES-VICE_PRESIDENT" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">25-SES-VICE_PRESIDENT</h2>
+                <a href="./SES-VICE_PRESIDENT.html">
+                    <button class="vote-btn">Vote</button>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/voteBank.jpg" alt="25-SES-VIDEO_EDITOR" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">25-SES-VIDEO_EDITOR</h2>
+                <a href="./SES-VIDEO_EDITOR.html">
+                    <button class="vote-btn">Vote</button>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/voteBank.jpg" alt="25-SES-GRAPHIC_DESIGNER" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">25-SES-GRAPHIC_DESIGNER</h2>
+                <a href="./SES-GRAPHIC_DESIGNER.html">
+                    <button class="vote-btn">Vote</button>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/voteBank.jpg" alt="25-SES-DIRECTOR_MANAGEMENT" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">25-SES-DIRECTOR_MANAGEMENT</h2>
+                <a href="./SES-DIRECTOR_MANAGEMENT.html">
+                    <button class="vote-btn">Vote</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

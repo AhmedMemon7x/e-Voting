@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}    
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #4CAF50;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242424;
+    color: white;
+    padding: 18px 20px;
+}
+.navbar-brand {
+    color: white;
+    font-size: 24px;
+    margin-left: 1.4em;
+    font-weight: bold;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+}
+.navbar-links li {
+    margin-left: 20px;
+}
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.navbar-links a:hover {
+    background-color: #4CAF50;
+}
+.logout-btn {
+    background-color: #4CAF50;
+}
+.logout-btn:hover {
+    background-color: #3E8E41;
+}
+
+button {
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 45px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+    background-color: #45a049; 
+    transform: scale(1.05);
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px;
+    margin: 20px;
+    max-width: 900px;
+    /* width: 100vw; */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    max-width: 100%; 
+    height: auto; 
+    margin-bottom: 20px; 
+}
+
+.project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.project-title {
+    font-size: 2.5em;
+    color: #333;
+    margin: 0;
+}
+.project-details {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+.project-details ul {
+    padding-left: 20px;
+}
+.project-details strong {
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .navbar-links {
+        flex-direction: column; 
+        width: 100%;
+        padding: 10px 0;
+        align-items: center;
+    }
+    .navbar-links li {
+        margin: 16px 0;
+    }
+    .project-container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+}
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">eVote</div>
+    <ul class="navbar-links">
+        <li><a href="userPortal.html">User Dashboard</a></li>
+        <li><a href="Projectdetails.html">Project Detail</a></li>
+        <li><a href="TeamMembers.html">Team Members</a></li>
+        <li><a href="userFeedback.html">Feedback</a></li>
+        <li><a class="logout-btn" href="signin.html">Logout</a></li>
+    </ul>
+</nav>
+<div class="project-container-parent" style="display: flex;justify-content: center;">
+<div class="project-container">
+    <img src="./img/webimg.png" alt="Project Image" class="project-image">
+    <div class="project-content">
+        <h1 class="project-title">Web Voting System</h1>
+        <p class="project-details">
+            This project presents a web-based voting system designed to facilitate secure and efficient elections within organizations.
+            Utilizing HTML, CSS, and JavaScript, the frontend provides intuitive admin and user interfaces. Firebase serves as the
+            backend database, ensuring real-time data synchronization and storage. The system enables admins to create and manage voting
+            sessions for various purposes, such as electing class representatives or society members. Users can cast votes and view 
+            results in real-time.
+        </p>
+        <p class="project-details" >
+            <strong>Key Features:</strong>
+            <ul style="color: #555;line-height: 24px;">
+                <li>Admin Portal: Create and manage voting sessions, view results</li>
+                <li>User Portal: Cast votes, view results</li>
+                <li>Real-time Updates: Firebase ensures instant data synchronization</li>
+                <li>Security: Firebase Authentication and Authorization</li>
+                <li>Scalable: Hosted on GitHub for version control and collaboration</li>
+                <li>
+                    This project demonstrates a user-friendly and efficient solution for conducting online elections, suitable for various organizational settings.
+                </li>
+            </ul>
+        </p>
+        <p class="project-details">
+            <strong>Key Achievements:</strong>
+            <ul style="color: #555;line-height: 24px; ">
+                <li>Improved Security: Secure authentication and authorization mechanisms ensure only registered voters can participate.</li>
+                <li>Enhanced Convenience: Voters can cast their ballots from anywhere, reducing absenteeism.</li>
+                <li>Reduced Errors: Automated vote counting minimizes manual errors.</li>
+            </ul>
+        </p>
+        <p class="project-details">
+            <strong>Conclusion:</strong><br>
+            The online voting system project demonstrates a viable solution for modernizing voting processes. By combining cutting-edge
+            technologies with intuitive design, this system has the potential to increase voter participation, reduce administrative
+            burdens, and ensure the integrity of elections. Its scalability and adaptability make it an attractive solution for various
+            organizational settings, from local elections to national polls.
+        </p>
+    </div>
+</div>
+</div>
+</body>
+</html>
