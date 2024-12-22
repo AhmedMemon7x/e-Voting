@@ -85,7 +85,7 @@
 
 
     <div class="container">
-        <h1>Create Voter</h1>
+        <h1>Enroll Candidate</h1>
         <form id="studentForm" onsubmit="addStudent(event)">
             <label for="image">Upload Image:</label>
             <input type="file" accept="image/*" id="image" required>
@@ -107,7 +107,7 @@
             <label for="candidateRollNo">Candidate Roll Number:</label>
             <input type="text" id="candidateRollNo" placeholder="Enter Candidate's Roll Number" required>
 
-            <input type="submit" value="Create Voting">
+            <input type="submit" value="Enroll Candidate">
         </form>
         <div class="back-link">
             <a href="admxyz321.html">Back to Admin Portal</a>
@@ -148,7 +148,7 @@
                         image: base64Data
                     })
                     .then(() => {
-                        alert('Voter added successfully!');
+                        alert('Candidate added successfully!');
                         document.getElementById('studentForm').reset();
                     })
                     .catch((error) => {

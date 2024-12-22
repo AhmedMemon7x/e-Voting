@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+    <title>Election Result</title>
+</head>
+<style>
+    .card {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image style */
+.card-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+    border: 2px solid #ddd;
+}
+
+/* Content inside the card */
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Name style */
+.card-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+/* Designation style */
+.card-designation {
+    font-size: 1.1rem;
+    color: #777;
+    margin: 10px 0;
+}
+
+/* Roll number style */
+.card-rollno {
+    font-size: 1rem;
+    color: #555;
+}
+.vote-btn{
+    all: unset;
+    background-color: black;
+    width: 100px;
+    height:30px ;
+    color: white;
+    border-radius: 4px;
+}
+.parent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* Responsiveness for smaller screens */
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+
+    .card-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .card-name {
+        font-size: 1.3rem;
+    }
+
+    .card-designation,
+    .card-rollno {
+        font-size: 1rem;
+    }
+}
+</style>
+<body>
+    <div><h1>End Elections Result</h1></br>
+        <!-- <p id="displayArea"></p> -->
+    <div class="parent">
+        <div class="card">
+                 <img src="" alt="Profile Image" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">24SW-CR</h2>
+                    <button class="vote-btn" name="24SW-CR" onclick="endVoting(name)">End Voting</button>
+
+
+            </div>
+        </div>
+        <div class="card">
+                 <img src="" alt="Profile Image" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">25-SES-PRESEIDENT</h2>
+                    <button class="vote-btn" name="25-SES-PRESEIDENT" onclick="endVoting(name)">End Voting</button>
+                </div>
+        </div>
+        <div class="card">
+                 <img src="" alt="Profile Image" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">25-SES-VICE_PRESEIDENT</h2>
+                    <button class="vote-btn" name="25-SES-VICE_PRESEIDENT" onclick="endVoting(name)">End Voting</button>
+                
+            </div>
+        </div>
+        <div class="card">
+                 <img src="" alt="Profile Image" class="card-img">
+            <div class="card-content">
+                <h2 class="card-name">25-SES-VIDEO_EDITOR</h2>
+                <!-- <h2 class="card-name">Result: </h2> -->
+                    <button class="vote-btn" name="25-SES-VIDEO_EDITOR" onclick="endVoting(name)">End Voting</button>
+                
+
+            </div>
+        </div>
+        <div class="card">
+            <img src="" alt="Profile Image" class="card-img">
+       <div class="card-content">
+           <h2 class="card-name">25-SES-GRAPHIC_DESIGNER</h2>
+           <!-- <h2 class="card-name">Result: </h2> -->
+            <button class="vote-btn" name="25-SES-GRAPHIC_DESIGNER" onclick="endVoting(name)">End Voting</button>
+        
+
+       </div>
+   </div>
+   <div class="card">
+    <img src="" alt="Profile Image" class="card-img">
+<div class="card-content">
+   <h2 class="card-name">25-SES-DIRECTOR_MANAGEMENT</h2>
+   <!-- <h2 class="card-name">Result: </h2> -->
+    <button class="vote-btn" name="25-SES-DIRECTOR_MANAGEMENT" onclick="endVoting(name)">End Voting</button>
+
+</div>
+</div>
+    </div>
+    </div>    
+    <a href="./adminPortal.html">Back</a>
+    </body>
+    <script>
+        const firebaseConfig = {
+      apiKey: "AIzaSyAZq4imcuIZ_MTthLSza1pAnnydINhakbU",
+      authDomain: "voting-website-584f3.firebaseapp.com",
+      databaseURL: "https://voting-website-584f3-default-rtdb.firebaseio.com",
+      projectId: "voting-website-584f3",
+      storageBucket: "voting-website-584f3.firebasestorage.app",
+      messagingSenderId: "521679073653",
+      appId: "1:521679073653:web:20dce826febbd86b96233c",
+      measurementId: "G-R72Q3972W6"
+    };
+    
+    
+    const fb = firebase.initializeApp(firebaseConfig);
+function endVoting(a){
+    console.log(a)
+
+    const  voting = {
+        votingStatus:"true"
+    };
+    // alert("3")
+    fb.database().ref(`endVoting`).child(a).set(voting);
+    alert("Voting has been ended!")
+ 
+}
+    </script>
+    </html>
